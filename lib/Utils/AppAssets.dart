@@ -51,7 +51,7 @@ class AppAssets {
   static const String seaWorld = "assets/images/on_ocean.png";
   static const String forestWorld = "assets/images/on_forest.png";
   static const String stars = "assets/images/stars.png";
-  static const String celebration = "assets/audio/celebration.mp3";
+  static const String celebration = "audio/celebration.mp3";
 
 
   static String getModelForAnimal(String animalName) {
