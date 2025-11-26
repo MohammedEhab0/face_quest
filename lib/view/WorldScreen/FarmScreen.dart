@@ -12,7 +12,7 @@ class FarmScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      Color farmThemeColor = AppColors.grayBlue; // Green for Farm world
-
+     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
       appBar: AppBar(
@@ -36,42 +36,42 @@ class FarmScreen extends StatelessWidget {
                 image: AppAssets.horse,
                 themeColor: farmThemeColor, arabicName: 'حصان',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Chick",
                 image: AppAssets.chick,
                 themeColor: farmThemeColor, arabicName: 'كتكوت',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Rooster",
                 image: AppAssets.rooster,
                 themeColor: farmThemeColor, arabicName: 'ديك',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Cow",
                 image: AppAssets.cow,
                 themeColor: farmThemeColor, arabicName: 'بقرة',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Sheep",
                 image: AppAssets.sheep,
                 themeColor: farmThemeColor, arabicName: 'خروف',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Rabbit",
                 image: AppAssets.rabbit,
                 themeColor: farmThemeColor, arabicName: 'أرنب',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
             ],
           ),
         ),

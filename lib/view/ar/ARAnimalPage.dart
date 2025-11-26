@@ -95,7 +95,7 @@ class _ARAnimalPageState extends State<ARAnimalPage>
     // 🔊 تشغيل صوت الاحتفال
     _celebratePlayer.stop();
     _celebratePlayer.play(AssetSource(AppAssets.celebration));
-
+    print("celebration sound played");
     // GOLD background
     setState(() => _currentBackgroundColor = Colors.amber.shade300);
 
@@ -133,6 +133,8 @@ class _ARAnimalPageState extends State<ARAnimalPage>
   @override
   Widget build(BuildContext context) {
     final Color buttonColor = widget.themeColor;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: _currentBackgroundColor,
@@ -176,7 +178,7 @@ class _ARAnimalPageState extends State<ARAnimalPage>
                 ),
               ),
 
-              _buildControls(buttonColor),SizedBox(height: 15,)
+              _buildControls(buttonColor),SizedBox(height: height *.02,)
             ],
           ),
 
@@ -254,7 +256,7 @@ class _ARAnimalPageState extends State<ARAnimalPage>
       onPressed: () => playAudio(file, label, index),
       style: ElevatedButton.styleFrom(
         backgroundColor: isActive ? Colors.green : AppColors.lightBlue,
-        padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
         elevation: 5,
       ),
@@ -262,7 +264,7 @@ class _ARAnimalPageState extends State<ARAnimalPage>
         mainAxisSize: MainAxisSize.min,
         children: [
           icon,
-          const SizedBox(width: 5),
+          const SizedBox(width: 4),
           Text(label, style: AppStyle.bold24White),
         ],
       ),

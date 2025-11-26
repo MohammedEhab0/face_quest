@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -67,13 +68,15 @@ class HomePage extends StatelessWidget {
         required String label,
         required Widget screen
       }) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => screen));
       },
       child: Container(
-        height: 140,
+        height: height*.165,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(22),
@@ -81,9 +84,9 @@ class HomePage extends StatelessWidget {
         child: Center(
           child: Row(
             children: [ Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding:  EdgeInsets.symmetric(horizontal: width*.04),
               child: Container(clipBehavior: Clip.antiAlias,decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28)),child: Image.asset(image, height: 90)),
+                  borderRadius: BorderRadius.circular(28)),child: Image.asset(image, height: height *.12)),
             ),
               Text(
                 "$label",

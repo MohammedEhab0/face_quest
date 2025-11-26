@@ -28,19 +28,20 @@ class _VideoIntroScreenState extends State<VideoIntroScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(
-      widget.videoPath,
-      videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
-      viewType: VideoViewType.textureView,
-    )
-      ..initialize().then((_) {
-        setState(() {});
-      })
-      ..addListener(() {
-        setState(() {
-          _isPlaying = _controller.value.isPlaying;
-        });
-      });
+    _controller =
+        VideoPlayerController.asset(
+            widget.videoPath,
+            videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+            viewType: VideoViewType.textureView,
+          )
+          ..initialize().then((_) {
+            setState(() {});
+          })
+          ..addListener(() {
+            setState(() {
+              _isPlaying = _controller.value.isPlaying;
+            });
+          });
   }
 
   @override
@@ -64,23 +65,20 @@ class _VideoIntroScreenState extends State<VideoIntroScreen> {
 
   void _goToWorld() {
     _controller.pause();
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => widget.screen),
-    );
+    Navigator.push(context, MaterialPageRoute(builder: (_) => widget.screen));
   }
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: AppBar(foregroundColor: AppColors.white,
+      appBar: AppBar(
+        foregroundColor: AppColors.white,
         elevation: 0,
         backgroundColor: widget.themeColor,
-        title: Text(
-          widget.title,
-          style: AppStyle.bold30White,
-        ),
+        title: Text(widget.title, style: AppStyle.bold30White),
         centerTitle: true,
       ),
       body: Column(
@@ -88,7 +86,7 @@ class _VideoIntroScreenState extends State<VideoIntroScreen> {
         children: [
           if (_controller.value.isInitialized)
             AspectRatio(
-              aspectRatio: 9/8,
+              aspectRatio: 9 / 11,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: VideoPlayer(_controller),
@@ -97,34 +95,38 @@ class _VideoIntroScreenState extends State<VideoIntroScreen> {
           else
             const CircularProgressIndicator(color: Colors.teal),
 
-          const SizedBox(height: 30),
+          SizedBox(height: height * .03),
 
           // Control Buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _controlButton(style: AppStyle.bold24DarkBlue,
+              _controlButton(
+                style: AppStyle.bold24DarkBlue,
                 icon: Icons.replay,
                 label: "إعادة",
-                color:AppColors.darkBlue,
+                color: AppColors.darkBlue,
                 onPressed: _replay,
               ),
-              const SizedBox(width: 20),
-              _controlButton(style: AppStyle.bold24GrayBlue,
+              SizedBox(width: width * .07),
+              _controlButton(
+                style: AppStyle.bold24GrayBlue,
                 icon: _isPlaying ? Icons.pause : Icons.play_arrow,
                 label: _isPlaying ? "إيقاف" : "تشغيل",
                 color: widget.themeColor,
                 onPressed: _playPause,
               ),
-              const SizedBox(width: 20),
-              _controlButton(style: AppStyle.bold24LightBlue,
+              SizedBox(width: width * .07),
+              _controlButton(
+                style: AppStyle.bold24LightBlue,
                 icon: Icons.skip_next,
                 label: "تخطي",
-                color:AppColors.lightBlue,
+                color: AppColors.lightBlue,
                 onPressed: _goToWorld,
               ),
             ],
-          ),
+
+          ),SizedBox(height: height * .02)
         ],
       ),
     );
@@ -151,10 +153,7 @@ class _VideoIntroScreenState extends State<VideoIntroScreen> {
           child: Icon(icon, size: 32, color: Colors.white),
         ),
         const SizedBox(height: 6),
-        Text(
-          label,
-          style:style,
-        ),
+        Text(label, style: style),
       ],
     );
   }

@@ -9,6 +9,8 @@ Widget animalCard(
       required String image,
       Color themeColor = const Color(0xFF4DD0E1),
     }) {
+  double width = MediaQuery.of(context).size.width;
+  double height = MediaQuery.of(context).size.height;
   return InkWell(
     borderRadius: BorderRadius.circular(28),
     splashColor: themeColor.withOpacity(0.25),
@@ -25,7 +27,7 @@ Widget animalCard(
       );
     },
     child: Container(
-      height: 120,
+      height: height *.165,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.9),
         borderRadius: BorderRadius.circular(28),
@@ -40,12 +42,12 @@ Widget animalCard(
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding:  EdgeInsets.symmetric(horizontal:width*.05),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(28),
               child: Image.asset(
                 image,
-                height: 90,
+                height: height *.13,
                 fit: BoxFit.cover,
               ),
             ),

@@ -12,7 +12,7 @@ class OceanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      Color oceanThemeColor = AppColors.lightBlue; // 🌊 Soft ocean blue
-
+     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
       appBar: AppBar(
@@ -36,42 +36,42 @@ class OceanScreen extends StatelessWidget {
                 image: AppAssets.turtle,
                 themeColor: oceanThemeColor, arabicName: 'سلحفاة',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Dolphin",
                 image: AppAssets.dolphin,
                 themeColor: oceanThemeColor, arabicName: 'دولفين',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Octopus",
                 image: AppAssets.octopus,
                 themeColor: oceanThemeColor, arabicName: 'أخطبوط',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Crab",
                 image: AppAssets.crab,
                 themeColor: oceanThemeColor, arabicName: 'كابوريا',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Shark",
                 image: AppAssets.shark,
                 themeColor: oceanThemeColor, arabicName: 'قرش',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Whale",
                 image: AppAssets.whale,
                 themeColor: oceanThemeColor, arabicName: 'حوت',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
             ],
           ),
         ),

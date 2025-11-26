@@ -12,7 +12,7 @@ class ForestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color forestThemeColor = AppColors.grayBlue; // 🌳 green forest tone
-
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
       appBar: AppBar(
@@ -36,35 +36,35 @@ class ForestScreen extends StatelessWidget {
                 image: AppAssets.tiger,
                 themeColor: forestThemeColor, arabicName: 'نمر',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Lion",
                 image: AppAssets.lion,
                 themeColor: forestThemeColor, arabicName: 'أسد',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Elephant",
                 image: AppAssets.elephant,
                 themeColor: forestThemeColor, arabicName: 'فيل',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Monkey",
                 image: AppAssets.monkey,
                 themeColor: forestThemeColor, arabicName: 'قرد',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Giraffe",
                 image: AppAssets.giraffe,
                 themeColor: forestThemeColor, arabicName: 'زرافة',
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
               animalCard(
                 context,
                 name: "Bear",
@@ -72,7 +72,7 @@ class ForestScreen extends StatelessWidget {
                 themeColor: forestThemeColor, arabicName: 'دب',
 
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: height *.025),
             ],
           ),
         ),

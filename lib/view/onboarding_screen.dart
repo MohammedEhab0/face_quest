@@ -28,6 +28,7 @@ class OnboardingScreen extends StatelessWidget {
   }
 
   void _showPermissionRequiredDialog(BuildContext context) {
+
     showDialog(
       context: context,
       builder: (context) {
@@ -59,13 +60,15 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 20),
+              SizedBox(height: height*.02),
 
               /// ---------------------- TOP IMAGES ----------------------
               Row(
@@ -76,11 +79,11 @@ class OnboardingScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 10),
+              SizedBox(height: height*.005),
 
               _worldCircle(AppAssets.forestWorld),
 
-              const SizedBox(height: 10),
+              SizedBox(height: height*.02),
 
               /// ---------------------- TITLE ----------------------
               Text(
@@ -89,11 +92,11 @@ class OnboardingScreen extends StatelessWidget {
                 textDirection: TextDirection.rtl,
               ),
 
-              const SizedBox(height: 16),
+              SizedBox(height: height*.015),
 
               /// ---------------------- BODY TEXT ----------------------
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "هنا يبدأ المكان الذي سيتمكّن\n"
                       "فيه طفلكم من التعلّم خطوة بخطوة\n"
@@ -109,7 +112,7 @@ class OnboardingScreen extends StatelessWidget {
               Image.asset(
                 AppAssets.stars,
                 fit: BoxFit.fitWidth,
-              ),
+              ), SizedBox(height: height*.015),
 
               /// ---------------------- START BUTTON ----------------------
               Padding(
